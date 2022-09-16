@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 
 const Navbar = () => {
   const links = [
-    { href: "/", label: "HOME", title: "Vai alla home"
+    { href: "/?page=1", label: "HOME", title: "Vai alla home"
    },
 
   ];

@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import {
   RouterProvider,
   createBrowserRouter,
-  Navigate,
+  Navigate
 } from "react-router-dom";
 import Home from "./Pages/Home";
 import Category from "./Pages/Category";
@@ -34,12 +34,15 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           return fetch(ENDPOINTS.CATEGORIES);
+          
         },
+        children: [ {     
+          path: "/",
+          element: <Navigate to={"?page=1"} />},
+          { path: "?page=1", element: <Home /> },
+  ,]
       },
-      {
-        path: "/catalogo",
-        element: <Navigate to={"/"} />,
-      },
+
       {
         path: "/catalogo/:categoryName",
         children: [
